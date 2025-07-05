@@ -1,0 +1,262 @@
+<!-- Final SkillArena Landing Page HTML -->
+
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkillArena</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --light-bg: #f9f9f9;
+      --dark-bg: #121212;
+      --light-text: #111;
+      --dark-text: #eee;
+      --box-light: #ffffff;
+      --box-dark: #1e1e1e;
+    }
+
+    body {
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow: hidden;
+    }
+
+    body.light {
+      background-color: var(--light-bg);
+      color: var(--light-text);
+    }
+
+    body.dark {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    .scroll-wrapper {
+      display: flex;
+      overflow-x: auto;
+      height: 100vh;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+
+    .scroll-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slide {
+      scroll-snap-align: start;
+      flex: none;
+      width: 100vw;
+      height: 100vh;
+      background-image: radial-gradient(currentColor 1px, transparent 1px);
+      background-size: 20px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 999;
+      border: 2px solid currentColor;
+      border-radius: 999px;
+      padding: 0.5rem 1rem;
+      background: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: bold;
+      text-align: center;
+      border-bottom: 3px solid currentColor;
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .row-boxes {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      max-width: 90vw;
+      overflow-x: auto;
+    }
+
+    .box {
+      border: 2px solid currentColor;
+      box-shadow: 4px 4px 0 currentColor;
+      padding: 1rem;
+      width: 250px;
+      background-color: var(--box-light);
+      transition: all 0.3s ease;
+    }
+
+    body.dark .box {
+      background-color: var(--box-dark);
+    }
+
+    .start-link {
+      font-weight: bold;
+      text-decoration: underline;
+      display: block;
+      text-align: center;
+    }
+
+    .faq-q {
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .faq-a {
+      display: none;
+      margin-top: 0.5rem;
+    }
+
+    .faq-open .faq-a {
+      display: block;
+    }
+  </style>
+</head>
+<body class="light">
+  <button id="themeToggle" class="theme-toggle">🌙</button>
+  <div class="scroll-wrapper" id="scrollWrapper">
+
+    <!-- Slide 1 -->
+    <section class="slide">
+      <h1 class="section-title">Welcome to SkillArena</h1>
+      <div class="row-boxes">
+        <div class="box">🎓 Students solve real-world tasks</div>
+        <div class="box">🏢 Companies post challenges</div>
+        <div class="box">🏆 Win rewards, certificates, recognition</div>
+        <div class="box"><a href="#how" class="start-link">Start Exploring →</a></div>
+      </div>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide" id="how">
+      <h1 class="section-title">How It Works</h1>
+      <div class="row-boxes">
+        <div class="box">📝 Companies post tasks (manually via form)</div>
+        <div class="box">👨‍🎓 10 students per task compete</div>
+        <div class="box">🎯 Best solution gets reward</div>
+        <div class="box">📂 All students build their profiles</div>
+      </div>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide">
+      <h1 class="section-title">Sample Tasks</h1>
+      <div class="row-boxes">
+        <div class="box">
+          <strong>Task:</strong> Redesign homepage for an edtech site<br>
+          <strong>Reward:</strong> $20 + Certificate
+        </div>
+        <div class="box">
+          <strong>Task:</strong> Write Python scraper for job listings<br>
+          <strong>Reward:</strong> Internship + $30
+        </div>
+        <div class="box text-center">
+          <a href="https://fakeform.com/post-task" class="start-link">Post Your Task → $5</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4 -->
+    <section class="slide">
+      <h1 class="section-title">Get Involved</h1>
+      <div class="row-boxes">
+        <div class="box text-center">
+          <strong>Companies:</strong><br>
+          <a href="https://forms.gle/FAKEtaskform" class="start-link">Submit a Task</a>
+        </div>
+        <div class="box text-center">
+          <strong>Students:</strong><br>
+          <a href="https://forms.gle/FAKEearlyaccess" class="start-link">Join Early Access</a>
+        </div>
+        <div class="box text-center">
+          <strong>Community:</strong><br>
+          <a href="https://discord.gg/yourdiscord" class="start-link">Join Discord</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5 -->
+    <section class="slide">
+      <h1 class="section-title">FAQ</h1>
+      <div class="row-boxes">
+        <div class="box faq-item">
+          <div class="faq-q">🤔 Who can join?</div>
+          <div class="faq-a">Any student from any branch/year.</div>
+        </div>
+        <div class="box faq-item">
+          <div class="faq-q">🏢 How do companies post?</div>
+          <div class="faq-a">Through a manual form (linked).</div>
+        </div>
+        <div class="box faq-item">
+          <div class="faq-q">💰 Is it free?</div>
+          <div class="faq-a">Free for students. Companies pay to post.</div>
+        </div>
+        <div class="box faq-item">
+          <div class="faq-q">🧠 What kind of tasks?</div>
+          <div class="faq-a">Design, code, marketing, research & more.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 6 -->
+    <section class="slide">
+      <h1 class="section-title">Contact & Credits</h1>
+      <div class="row-boxes">
+        <div class="box text-center">
+          <p>Made with ❤️ by LazyCat</p>
+          <p>© 2025 SkillArena</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    const container = document.getElementById("scrollWrapper");
+    container.addEventListener("wheel", function (e) {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        container.scrollLeft += e.deltaY;
+      }
+    }, { passive: false });
+
+    const btn = document.getElementById("themeToggle");
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      document.body.classList.toggle("light");
+      btn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    });
+
+    const faqs = document.querySelectorAll(".faq-item");
+    faqs.forEach(item => {
+      item.querySelector(".faq-q").addEventListener("click", () => {
+        faqs.forEach(i => i.classList.remove("faq-open"));
+        item.classList.toggle("faq-open");
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+<!-- Includes dummy task form, early access, CTA, and demo tasks -->
